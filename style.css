@@ -50,3 +50,25 @@ transition: 0.3s;}
   'GRAD' 0,
   'opsz' 40
 }
+
+/* 주문서 구역 전체 디자인*/    
+#order-area{
+        margin-top: 60px;
+        padding: 30px;
+        background-color: #f4f9f4;
+        border: 1px solid #e0e0e0;
+        border-radius: 20px;
+        /* flexbox 마법적용구역*/ 
+}
+form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 500px;
+}
+/* 입력창 세부 정렬*/ 
+.input-group{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+}
