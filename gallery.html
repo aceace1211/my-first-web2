@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레드향 - 전공 탐구</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* 영수증 박스 기본 스타일 (style.css에 없다면 대비용) */
+        .receipt-box {
+            display: none;
+            border: 2px dashed #ff6600;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff9f5;
+            border-radius: 10px;
+        }
+        .order-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Jua', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <span class="material-symbols-outlined">agriculture</span>
+            세상이 널 버렸다 생각하지 마라 세상은 널 가진 적이 없다
+            <span class="material-symbols-outlined">sprinkler</span>
+        </h1>
+    </header>
+
+    <nav>
+       <a href="index.html">홈으로</a> |
+       <a href="subject.html">전공 탐구</a>|
+       <a href="gallery.html">갤러리</a>
+    </nav>
+
+    <main>
+<div class="display-box">
+    <img id="targetImg" src="새 폴더/244546_145056_5824.jpg" style="width: 100%; max-width:500px;" alt="레드향사진">
+    <p id="targetDesc">레드향</p>
+</div>
+<div class="thumb-list">
+    <img src="새 폴더/244546_145056_5824.jpg"
+         onclick="show('새 폴더/244546_145056_5824.jpg', '레드향!')" />
+    <img src="새 폴더/315973_50187_2350.jpg"
+         onclick="show('새 폴더/315973_50187_2350.jpg', '레드향할아버지')" />
+</div>
+</main>
+    <footer>
+        <p>&copy; 2026 박은호 문의:aceace0708@gmail.com</p>
+    </footer>
+    <script>
+        // imgPath: 클릭한 사진의 주소 / text:클릭한 사진의 설명
+function show(imgPath, text) {
+    // 메인 전광판 사진의 주소(src)를 클릭한 사진으로 바꾼다
+    document.getElementById("targetImg").src = imgPath;
+
+    // 메인 전광판 설명의 글자(innerText)를 바꾼다
+    document.getElementById("targetDesc").innerText = text;
+}
+    </script>
+</body>
+</html>
