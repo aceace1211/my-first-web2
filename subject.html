@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
     <link rel="stylesheet" href="./style.css">
     <style>
-        /* 영수증 박스 기본 스타일 (style.css에 없다면 대비용) */
+        /* 영수증 박스 기본 스타일 */
         .receipt-box {
             display: none;
             border: 2px dashed #ff6600;
@@ -28,6 +28,22 @@
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Jua', sans-serif;
+        }
+        /* 로그인 박스 스타일 보완 */
+        #login-box {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        #userPw {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 150px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -48,117 +64,136 @@
     </nav>
 
     <main>
-        <section class="agriculture-portfolio">
-            <article class="crop-item">
-                <figure class="crop-image">
-                    <img src="./새 폴더/C0006912_2020121417314224906.jpg" alt="직접 재배한 농작물 사진" />
-                    <figcaption>그림 1. 본인이 직접 재배한 농작물 실물</figcaption>
-                </figure>
+        <div id="login-box" style="text-align: center;">
+            <h2>🔐 시스템 인증이 필요합니다</h2>
+            <p>콘텐츠를 보려면 암호를 입력하세요.</p>
+            <input type="password" id="userPw" placeholder="암호 4자리" onkeypress="if(event.keyCode==13) checkLogin();" />
+            <br>
+            <button class="order-btn" onclick="checkLogin()">인증하기</button>
+        </div>
 
-                <div class="crop-details">
-                    <h3>농작물 명칭: 레드향</h3>
-                    <section class="info-block">
-                        <h4>🌱 재배 및 생산 특성</h4>
-                        <ul>
-                            <li><strong>품종:</strong> 감평 Kanpei</li>
-                            <li><strong>재배 환경:</strong> 시설재배(하우스)</li>
-                        </ul>
-                    </section>
+        <div id="secret-area" style="display: none;">
+            
+            <section class="agriculture-portfolio">
+                <article class="crop-item">
+                    <figure class="crop-image">
+                        <img src="./새 폴더/C0006912_2020121417314224906.jpg" alt="직접 재배한 농작물 사진" />
+                        <figcaption>그림 1. 본인이 직접 재배한 농작물 실물</figcaption>
+                    </figure>
 
-                    <section class="info-block distribution">
-                        <h4>🚚 유통 구조 설계</h4>
-                        <div class="step-guide">
-                            <span>생산자(나)</span> → <span>로컬푸드 직매장</span> → <span>최종 소비자</span>
-                        </div>
-                        <ul>
-                            <li><strong>물류 방식:</strong> 콜드체인(Cold Chain) 시스템 필수</li>
-                            <li><strong>판매 전략:</strong> 고당도 품질 관리 및 명절 선물 세트 기획</li>
-                        </ul>
-                        <p><a href="https://namu.wiki/w/%EB%A0%88%EB%93%9C%ED%96%A5" class="my-button">레드향에 대해 더 알아보기</a></p>
-                    </section>
-                </div>
-            </article>
-        </section>
+                    <div class="crop-details">
+                        <h3>농작물 명칭: 레드향</h3>
+                        <section class="info-block">
+                            <h4>🌱 재배 및 생산 특성</h4>
+                            <ul>
+                                <li><strong>품종:</strong> 감평 Kanpei</li>
+                                <li><strong>재배 환경:</strong> 시설재배(하우스)</li>
+                            </ul>
+                        </section>
 
-        <section id="order-area">
-            <hr>
-            <h2>📦 온라인 주문하기</h2>
-            <form id="orderForm">
-                <div class="input-row">
-                    <div class="input-group">
-                        <label for="userName">주문자 성함</label>
-                        <input type="text" id="userName" placeholder="실명을 입력하세요">
+                        <section class="info-block distribution">
+                            <h4>🚚 유통 구조 설계</h4>
+                            <div class="step-guide">
+                                <span>생산자(나)</span> → <span>로컬푸드 직매장</span> → <span>최종 소비자</span>
+                            </div>
+                            <ul>
+                                <li><strong>물류 방식:</strong> 콜드체인(Cold Chain) 시스템 필수</li>
+                                <li><strong>판매 전략:</strong> 고당도 품질 관리 및 명절 선물 세트 기획</li>
+                            </ul>
+                            <p><a href="https://namu.wiki/w/%EB%A0%88%EB%93%9C%ED%96%A5" class="my-button">레드향에 대해 더 알아보기</a></p>
+                        </section>
                     </div>
-                </div>
+                </article>
+            </section>
 
-                <div class="input-row">
+            <section id="order-area">
+                <hr>
+                <h2>📦 온라인 주문하기</h2>
+                <form id="orderForm">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="userName">주문자 성함</label>
+                            <input type="text" id="userName" placeholder="실명을 입력하세요">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="unitweight">구매 단위 선택</label>
+                            <select id="unitweight">
+                                <option value="15000">레드향 1kg (15,000원)</option>
+                                <option value="35000">레드향 3kg (35,000원)</option>
+                                <option value="45000">레드향 5kg (45,000원)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="quantity">주문 수량 (박스)</label>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                        </div>
+                    </div>
+
                     <div class="input-group">
-                        <label for="unitweight">구매 단위 선택</label>
-                        <select id="unitweight">
-                            <option value="15000">레드향 1kg (15,000원)</option>
-                            <option value="35000">레드향 3kg (35,000원)</option>
-                            <option value="45000">레드향 5kg (45,000원)</option>
+                        <label for="userPhone">연락처</label>
+                        <input type="text" id="userPhone" placeholder="010-0000-0000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="deliveryfee">배송 방식 선택</label>
+                        <select id="deliveryfee">
+                            <option value="3000">일반 택배(3000원)</option>
+                            <option value="5000">신선 새벽 배송(5000원)</option>
+                            <option value="0">광주 로컬푸드 매장 픽업(무료)</option>
                         </select>
                     </div>
+
                     <div class="input-group">
-                        <label for="quantity">주문 수량 (박스)</label>
-                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <label>배송 메시지</label>
+                        <textarea placeholder="부재 시 문 앞에 놓아주세요"></textarea>
                     </div>
-                </div>
 
-                <div class="input-group">
-                    <label for="userPhone">연락처</label>
-                    <input type="text" id="userPhone" placeholder="010-0000-0000">
-                </div>
+                    <button type="button" class="order-btn" onclick="processOrder()">지금 바로 주문 완료</button>
+                </form>
+                
+                <div id="receipt" class="receipt-box"></div>
+            </section>
 
-                <div class="input-group">
-                    <label for="deliveryfee">배송 방식 선택</label>
-                    <select id="deliveryfee">
-                        <option value="3000">일반 택배(3000원)</option>
-                        <option value="5000">신선 새벽 배송(5000원)</option>
-                        <option value="0">광주 로컬푸드 매장 픽업(무료)</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>배송 메시지</label>
-                    <textarea placeholder="부재 시 문 앞에 놓아주세요"></textarea>
-                </div>
-
-                <button type="button" class="order-btn" onclick="processOrder()">지금 바로 주문 완료</button>
-            </form>
-            
-            <div id="receipt" class="receipt-box"></div>
-        </section>
-    </main>
+        </div> </main>
 
     <footer>
         <p>&copy; 2026 박은호 문의: aceace0708@gmail.com</p>
     </footer>
 
     <script>
+    // 로그인 체크 함수
+    function checkLogin() {
+        let pw = document.getElementById("userPw").value;
+        if (pw === "1211") {
+            alert("인증에 성공하였습니다.");
+            document.getElementById("login-box").style.display = "none";
+            document.getElementById("secret-area").style.display = "block";
+        } else {
+            alert("암호가 일치하지 않습니다. 다시 시도하십시오.");
+        }
+    }
+
+    // 주문 처리 함수
     function processOrder() {
-        // 1. 데이터 가져오기 (ID 대소문자 정확히 일치시킴)
         const name = document.getElementById("userName").value;
         const phone = document.getElementById("userPhone").value;
         const quantity = Number(document.getElementById("quantity").value);
         let deliveryFee = Number(document.getElementById("deliveryfee").value);
 
-        // 2. 선택 상품 정보 추출
         const unitSelect = document.getElementById("unitweight");
         const productPrice = Number(unitSelect.value);
         const productName = unitSelect.options[unitSelect.selectedIndex].text;
 
-        // 3. 유효성 검사
         if (name.trim() === "" || phone.trim() === "") {
             alert("⚠️ 주문자 성함과 연락처를 모두 입력해 주세요!");
             return;
         }
 
-        // 4. 계산 로직
         const basePrice = productPrice * quantity;
         
-        // 3만원 이상 결제 시 배송비 무료 (단, 픽업(0원)이 아닐 때만 메시지 처리)
         let deliveryText = deliveryFee.toLocaleString() + "원";
         if (basePrice >= 30000 && deliveryFee > 0) {
             deliveryFee = 0;
@@ -170,7 +205,6 @@
         const totalPrice = basePrice + deliveryFee;
         const dateString = new Date().toLocaleString();
 
-        // 5. 영수증 출력
         const receipt = document.getElementById("receipt");
         receipt.innerHTML = `
             <h3>📄 주문 확인 영수증</h3>
@@ -189,10 +223,7 @@
             <p style="text-align:center; margin-top:15px;">이용해 주셔서 감사합니다 🛍️</p>
         `;
 
-        // 영수증 영역 보이기
         receipt.style.display = "block";
-        
-        // 화면을 영수증 위치로 부드럽게 이동
         receipt.scrollIntoView({ behavior: 'smooth' });
     }
     </script>
