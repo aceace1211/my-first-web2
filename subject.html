@@ -210,7 +210,7 @@
         // 금고에서 비밀번호를 가져오거나 없으면 '1211'를 기본값으로 설정
         let currentPw = localStorage.getItem("userPassword") || "1211";
 
-        if (pw === currentPw && name ==! "") {
+        if (pw === currentPw && name !== "") {
             // [밑바탕 작업] 이름과 상태를 금고(localStorage)에 넣습니다.
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("savedName", name);
